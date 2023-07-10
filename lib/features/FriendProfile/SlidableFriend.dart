@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+import '../../core/widgets/custom_text.dart';
+
 
 
 class SlidableSocialFriend extends StatelessWidget {
@@ -24,6 +26,7 @@ class SlidableSocialFriend extends StatelessWidget {
                   backgroundColor: Colors.green,
                   icon: Icons.edit,
                   onPressed:(context){},
+
                 ),
               ),
               Container(
@@ -39,15 +42,20 @@ class SlidableSocialFriend extends StatelessWidget {
             ],),
           child: Container(
             width: double.infinity,
-            height: 85,
-            margin: EdgeInsets.symmetric(vertical: 10,horizontal: 20),
+            height: 80,
+            padding: EdgeInsets.all(16),
+            margin: EdgeInsets.only(bottom: 24),
             decoration: BoxDecoration(
-              color: Colors.blue,
-              borderRadius: BorderRadius.circular(20)
+              color: Colors.lime,
+              borderRadius: BorderRadius.circular(12),
             ),
-            child: ListTile(
-              title: Text('$SocialMedia'),
-              subtitle: Text('$URL'),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomText(text: 'Instagram',color:Colors.brown,),
+                SizedBox(height: 4,),
+                CustomText(text: 'https://www.instagram.com/a7medhq/',color: Colors.brown,),
+              ],
             ),
           ),
         );

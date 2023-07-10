@@ -1,12 +1,16 @@
+import 'package:bootcamp_starter/core/util/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
+import '../../core/util/constants.dart';
+import '../../core/widgets/custom_elevated_button.dart';
 import 'Profile/Slidable.dart';
-import 'Profile/identification.dart';
-
-
+import 'Profile/user_card_profile_widget.dart';
+import 'friendProfile.dart';
 
 class ProfileView extends StatefulWidget {
   static String id = '/profileView';
+
   const ProfileView({Key? key}) : super(key: key);
 
   @override
@@ -14,49 +18,67 @@ class ProfileView extends StatefulWidget {
 }
 
 class _ProfileViewState extends State<ProfileView> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text("Profile",style: TextStyle(fontSize: 20,color: Colors.black),),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-
-      ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          identification(),
-
-          SizedBox(
-            height: 400,
-            width: double.infinity,
-            child: ListView.builder(
-              itemCount: 5,
-              itemBuilder: (context, index) {
-                return SlidableSocial('URL', 'SocialMedia');
-              },),
+        appBar: AppBar(
+          title: Text(
+            "Profile",
+            style: TextStyle(fontSize: 20, color: kPrimaryColor),
           ),
-          SizedBox(height: 10,),
-          Padding(
-            padding:  EdgeInsets.only(right: 30),
-            child: Align(
-              alignment: Alignment.topRight,
-              child: FloatingActionButton(
-                onPressed: (){
-                  Navigator.pushNamed(context, "/FriendProfile");
-                },
-                backgroundColor:  Colors.deepPurpleAccent,
-                child: Icon(Icons.add),),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          elevation: 0,
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Column(
+              children: [
+                UserCardProfileWidget(),
+                SizedBox(height: 20,),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: 4,
+                  itemBuilder: (context, index) {
+                    return SlidableSocial(index);
+                  },
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+
+                SizedBox(
+                  height: 10,
+                )
+              ],
             ),
           ),
-          SizedBox(height: 10,)
+        ),
+        floatingActionButton: InkWell(
 
-        ],
-      ),
-    );
+            onTap: (){
+             
+              Navigator.push(context,MaterialPageRoute(builder: (context) {
+                return FriendProfile();
+              },));
+
+          },
+          child: Padding(
+              padding: const EdgeInsets.only(right: 20, bottom: 80),
+              child:  CircleAvatar(
+                backgroundColor: kPrimaryColor,
+                maxRadius: 30,
+                child:Icon(
+                  Icons.add,
+                  size: 30,
+                  color: Colors.white,
+                ),
+              ),
+              ),
+        ));
   }
 }
 
