@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../core/util/assets.dart';
 import '../../../core/util/constants.dart';
 import '../../../core/widgets/custom_elevated_button.dart';
+import '../edit_profile.dart';
 
 class UserCardProfileWidget extends StatelessWidget {
 
@@ -46,7 +47,9 @@ class UserCardProfileWidget extends StatelessWidget {
 SizedBox(width: 66,),
 
                     IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context,  EditProfile.id);
+                        },
                         icon: Icon(
                           Icons.edit,
                           color: Colors.white,
