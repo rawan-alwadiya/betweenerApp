@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Betweener',
+      title: 'bootcamp_starter',
       theme: ThemeData(
           useMaterial3: true,
           colorSchemeSeed: kPrimaryColor,

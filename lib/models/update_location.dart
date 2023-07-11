@@ -1,12 +1,12 @@
-import 'User.dart';
+import 'Users.dart';
 
 class update_location {
-  User? user;
+  Users? user;
 
   update_location({this.user});
 
   update_location.fromJson(Map<String, dynamic> json) {
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ? new Users.fromJson(json['user']) : null;
   }
 
   Map<String, dynamic> toJson() {

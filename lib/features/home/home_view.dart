@@ -17,7 +17,7 @@ class HomeView extends StatelessWidget {
           icon: Icon(Icons.logout_outlined),
           onPressed: (){
             Navigator.pushReplacementNamed(context, LoginView.id);
-            SharedPreController().clear();
+            // SharedPreController().clear();
           },
         ),
         actions: [
