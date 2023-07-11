@@ -1,9 +1,14 @@
+import 'package:bootcamp_starter/api/api_response.dart';
+import 'package:bootcamp_starter/api/auth_api.dart';
+import 'package:bootcamp_starter/api/users_api.dart';
 import 'package:bootcamp_starter/core/util/assets.dart';
 import 'package:bootcamp_starter/core/widgets/custom_labeled_textfield_widget.dart';
 import 'package:bootcamp_starter/core/widgets/secondary_button_widget.dart';
+import 'package:bootcamp_starter/features/auth/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../main_app/main_app_view.dart';
 import 'widgets/google_button_widget.dart';
 
 class RegisterView extends StatelessWidget {
@@ -74,7 +79,13 @@ class RegisterView extends StatelessWidget {
                 const SizedBox(
                   height: 24,
                 ),
-                SecondaryButtonWidget(onTap: () {}, text: 'REGISTER'),
+                SecondaryButtonWidget(
+                    onTap: () async{
+                     await AuthApi().register(name: nameController.text , email: emailController.text , password: passwordController.text);
+                      await UsersApi().update_fcm(fcm: '12345');
+                     Navigator.pushNamed(context, MainAppView.id);
+
+                }, text: 'REGISTER'),
                 const SizedBox(
                   height: 12,
                 ),
@@ -97,4 +108,5 @@ class RegisterView extends StatelessWidget {
       ),
     );
   }
+
 }

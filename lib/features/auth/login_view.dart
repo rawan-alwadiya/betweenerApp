@@ -1,3 +1,4 @@
+import 'package:bootcamp_starter/api/auth_api.dart';
 import 'package:bootcamp_starter/core/util/assets.dart';
 import 'package:bootcamp_starter/core/widgets/custom_labeled_textfield_widget.dart';
 import 'package:bootcamp_starter/core/widgets/primary_outlined_button_widget.dart';
@@ -22,7 +23,7 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
@@ -53,7 +54,8 @@ class LoginView extends StatelessWidget {
                   height: 24,
                 ),
                 SecondaryButtonWidget(
-                    onTap: () {
+                    onTap: () async{
+                       await AuthApi().login(email: emailController.text, password: passwordController.text);
                       Navigator.pushNamed(context, MainAppView.id);
                     },
                     text: 'LOGIN'),
@@ -76,9 +78,11 @@ class LoginView extends StatelessWidget {
                       fontWeight: FontWeight.w300),
                 ),
                 const SizedBox(
-                  height: 14,
+                  height: 12,
                 ),
-                GoogleButtonWidget(onTap: () {}),
+                GoogleButtonWidget(onTap: () {
+
+                }),
                 const Spacer(),
               ],
             ),

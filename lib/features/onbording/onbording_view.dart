@@ -2,8 +2,11 @@ import 'package:bootcamp_starter/core/util/assets.dart';
 import 'package:bootcamp_starter/core/util/constants.dart';
 import 'package:bootcamp_starter/core/widgets/secondary_button_widget.dart';
 import 'package:bootcamp_starter/features/auth/login_view.dart';
+import 'package:bootcamp_starter/prefs/shared_pref_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../main_app/main_app_view.dart';
 
 class OnBoardingView extends StatelessWidget {
   static String id = '/onBoardingView';
@@ -32,10 +35,15 @@ class OnBoardingView extends StatelessWidget {
               text: 'Get Started',
               width: double.infinity,
               onTap: () {
-                Navigator.pushNamed(context, LoginView.id);
+                String loggedIn = SharedPreController().getValueFor<String>(key:Prefkeys.token.name) ?? 'false';
+                if (loggedIn=='false'){
+                  Navigator.pushNamed(context, LoginView.id);
+                }
+                Navigator.pushNamed(context,MainAppView.id);
+
               },
             ),
-            const Spacer()
+            const Spacer(),
           ],
         ),
       ),
