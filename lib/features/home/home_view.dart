@@ -67,7 +67,6 @@ class HomeView extends StatelessWidget {
               border: Border.all(width: 2.2),
             ),
           ),
-
           SizedBox(
             height: 90,
             child: ListView(
