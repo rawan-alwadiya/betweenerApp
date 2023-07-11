@@ -6,6 +6,7 @@ import 'package:bootcamp_starter/core/widgets/primary_outlined_button_widget.dar
 import 'package:bootcamp_starter/core/widgets/secondary_button_widget.dart';
 import 'package:bootcamp_starter/extentions/context_extention.dart';
 import 'package:bootcamp_starter/features/auth/register_view.dart';
+import 'package:bootcamp_starter/features/home/home_view.dart';
 import 'package:bootcamp_starter/features/main_app/main_app_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
