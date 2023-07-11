@@ -1,9 +1,6 @@
-import 'package:bootcamp_starter/core/util/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../../core/util/constants.dart';
-import '../../core/widgets/custom_elevated_button.dart';
 import 'Profile/Slidable.dart';
 import 'Profile/user_card_profile_widget.dart';
 import 'friendProfile.dart';

@@ -1,7 +1,7 @@
-import 'package:bootcamp_starter/core/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/util/constants.dart';
+import '../../core/widgets/custom_text.dart';
 import '../FriendProfile/SlidableFriend.dart';
 import '../FriendProfile/user_card_friend.dart';
 
