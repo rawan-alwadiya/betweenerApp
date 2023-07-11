@@ -1,7 +1,7 @@
+import 'package:bootcamp_starter/models/User.dart';
+import 'package:bootcamp_starter/models/r_user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-enum Prefkeys{
-   token
-}
+enum Prefkeys{id,loggedIn,name, email, password, token}
 class SharedPreController {
   SharedPreController._();
 
@@ -17,9 +17,15 @@ class SharedPreController {
     _sharedPreferences = await SharedPreferences.getInstance();
   }
 
-  void save( String? token) async {
-    await _sharedPreferences.setString(Prefkeys.token.name, 'Bearer ${token}');
+  Future<void> save({required User user}) async{
+    await _sharedPreferences.setBool(Prefkeys.loggedIn.name, true);
+    await _sharedPreferences.setInt(Prefkeys.id.name, user.id);
+    await _sharedPreferences.setString(Prefkeys.name.name, user.name);
+    await _sharedPreferences.setString(Prefkeys.email.name, user.email);
+    await _sharedPreferences.setString(Prefkeys.token.name, 'Bearer ${user.fcm}');
   }
+
+
   T? getValueFor<T>({required String key}){
     if(_sharedPreferences.containsKey(key)){
       return _sharedPreferences.get(key) as T;
