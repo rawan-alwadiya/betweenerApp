@@ -1,5 +1,7 @@
+import 'package:bootcamp_starter/features/auth/login_view.dart';
 import 'package:bootcamp_starter/features/home/qr_scan.dart';
 import 'package:bootcamp_starter/features/home/widgets/show_link.dart';
+import 'package:bootcamp_starter/prefs/shared_pref_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -11,7 +13,13 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Container(),
+        leading: IconButton(
+          icon: Icon(Icons.logout_outlined),
+          onPressed: (){
+            Navigator.pushReplacementNamed(context, LoginView.id);
+            SharedPreController().clear();
+          },
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(

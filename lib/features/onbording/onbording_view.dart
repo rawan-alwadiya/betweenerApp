@@ -35,13 +35,8 @@ class OnBoardingView extends StatelessWidget {
               text: 'Get Started',
               width: double.infinity,
               onTap: () {
-                String loggedIn = SharedPreController().getValueFor<String>(key:Prefkeys.token.name) ?? 'false';
-                if (loggedIn=='false'){
-                  Navigator.pushNamed(context, LoginView.id);
+                Navigator.pushReplacementNamed(context,LoginView.id);
                 }
-                Navigator.pushNamed(context,MainAppView.id);
-
-              },
             ),
             const Spacer(),
           ],

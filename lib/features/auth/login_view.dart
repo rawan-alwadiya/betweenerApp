@@ -1,8 +1,10 @@
+import 'package:bootcamp_starter/api/api_message.dart';
 import 'package:bootcamp_starter/api/auth_api.dart';
 import 'package:bootcamp_starter/core/util/assets.dart';
 import 'package:bootcamp_starter/core/widgets/custom_labeled_textfield_widget.dart';
 import 'package:bootcamp_starter/core/widgets/primary_outlined_button_widget.dart';
 import 'package:bootcamp_starter/core/widgets/secondary_button_widget.dart';
+import 'package:bootcamp_starter/extentions/context_extention.dart';
 import 'package:bootcamp_starter/features/auth/register_view.dart';
 import 'package:bootcamp_starter/features/main_app/main_app_view.dart';
 import 'package:flutter/material.dart';
@@ -55,8 +57,11 @@ class LoginView extends StatelessWidget {
                 ),
                 SecondaryButtonWidget(
                     onTap: () async{
-                      await AuthApi().login(email: emailController.text, password: passwordController.text);
-                      Navigator.pushNamed(context, MainAppView.id);
+                     ApiMessage apiMessage = await AuthApi().login(email: emailController.text, password: passwordController.text);
+                     context.showSnackBar(message: apiMessage.message, error: apiMessage.success);
+                     if(apiMessage.success) {
+                       Navigator.pushNamed(context, MainAppView.id);
+                     }
                     },
                     text: 'LOGIN'),
                 const SizedBox(
