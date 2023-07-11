@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/widgets/custom_labeled_textfield_widget.dart';
-import '../../../core/widgets/secondary_button_widget.dart';
+import '../../core/widgets/custom_labeled_textfield_widget.dart';
+import '../../core/widgets/secondary_button_widget.dart';
 
 
 class AddLink extends StatelessWidget {

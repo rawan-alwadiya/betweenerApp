@@ -1,3 +1,4 @@
+import 'package:bootcamp_starter/features/profile/AddLink.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/util/constants.dart';
@@ -59,7 +60,7 @@ class _ProfileViewState extends State<ProfileView> {
             onTap: (){
              
               Navigator.push(context,MaterialPageRoute(builder: (context) {
-                return FriendProfile();
+                return AddLink();
               },));
 
           },

@@ -6,12 +6,15 @@ import 'package:bootcamp_starter/features/home/qr_scan.dart';
 import 'package:bootcamp_starter/features/main_app/main_app_view.dart';
 import 'package:bootcamp_starter/features/onbording/onbording_view.dart';
 import 'package:bootcamp_starter/features/profile/profile_view.dart';
+import 'package:bootcamp_starter/prefs/shared_pref_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'core/util/constants.dart';
 import 'features/profile/edit_profile.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SharedPreController().initPref();
   runApp(const MyApp());
 }
 

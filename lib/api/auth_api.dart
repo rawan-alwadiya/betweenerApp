@@ -19,15 +19,7 @@ class AuthApi {
       print(login_user.fromJson(response).token );
       SharedPreController().save(login_user.fromJson(response).token);
     }
-    // return login_user.fromJson(response).token;
-    // if(response.statusCode == 200){
-    //   var jsonResponse = jsonDecode(response.body);
-    //   login_user user = login_user.fromJson(jsonResponse);
-    //   SharedPreController().save(user);
-    //   return ApiResponse(success: true, message: 'Logged successfully');
-    // }else {
-    //   return ApiResponse(success: false , message: 'Something goes wrong') ;
-    // }
+
 
   }
 
@@ -41,11 +33,7 @@ class AuthApi {
     if (regiser_user.fromJson(response).token != null) {
       print(regiser_user.fromJson(response).token);
       SharedPreController().save(login_user.fromJson(response).token);
-      // if(response.statusCode ==201){
-      //    return ApiResponse(success: true, message: 'Account created successfully');
-      // }else{
-      //   return ApiResponse(success: false, message: 'Something goes wrong');
-      // }
+
 
     }
   }

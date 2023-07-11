@@ -55,7 +55,7 @@ class LoginView extends StatelessWidget {
                 ),
                 SecondaryButtonWidget(
                     onTap: () async{
-                       await AuthApi().login(email: emailController.text, password: passwordController.text);
+                      await AuthApi().login(email: emailController.text, password: passwordController.text);
                       Navigator.pushNamed(context, MainAppView.id);
                     },
                     text: 'LOGIN'),

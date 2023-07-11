@@ -82,7 +82,7 @@ class RegisterView extends StatelessWidget {
                 SecondaryButtonWidget(
                     onTap: () async{
                      await AuthApi().register(name: nameController.text , email: emailController.text , password: passwordController.text);
-                      await UsersApi().update_fcm(fcm: '12345');
+                      // await UsersApi().update_fcm(fcm: '12345');
                      Navigator.pushNamed(context, MainAppView.id);
 
                 }, text: 'REGISTER'),
