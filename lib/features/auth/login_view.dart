@@ -22,7 +22,7 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
@@ -76,7 +76,7 @@ class LoginView extends StatelessWidget {
                       fontWeight: FontWeight.w300),
                 ),
                 const SizedBox(
-                  height: 12,
+                  height: 14,
                 ),
                 GoogleButtonWidget(onTap: () {}),
                 const Spacer(),

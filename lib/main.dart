@@ -9,6 +9,7 @@ import 'package:bootcamp_starter/features/profile/profile_view.dart';
 import 'package:flutter/material.dart';
 
 import 'core/util/constants.dart';
+import 'features/profile/edit_profile.dart';
 
 void main() async {
   runApp(const MyApp());
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         MainAppView.id: (context) => const MainAppView(),
         ProfileView.id: (context) => const ProfileView(),
         ReceiveView.id: (context) => const ReceiveView(),
+        EditProfile.id: (context) => const EditProfile(),
         ScanCode.id: (context) =>  ScanCode(),
       },
     );
