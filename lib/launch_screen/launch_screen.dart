@@ -42,7 +42,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
         //     ]
         //   )
         // ),
-        child: Text('Betweener', style: GoogleFonts.pacifico(fontSize: 34,fontWeight: FontWeight.bold, color: Colors.white,),),
+        child: Text('bootcamp_starter', style: GoogleFonts.pacifico(fontSize: 34,fontWeight: FontWeight.bold, color: Colors.white,),),
       ),
     );
   }

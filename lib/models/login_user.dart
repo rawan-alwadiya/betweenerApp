@@ -1,13 +1,13 @@
-import 'User.dart';
+import 'Users.dart';
 
 class login_user {
-  User? user;
+  Users? user;
   String? token;
 
   login_user({this.user, this.token});
 
   login_user.fromJson(Map<String, dynamic> json) {
-    user = json['user'] != null ? new User.fromJson(json['user']) : null;
+    user = json['user'] != null ? new Users.fromJson(json['user']) : null;
     token = json['token'];
   }
 

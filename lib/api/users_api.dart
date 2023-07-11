@@ -1,5 +1,5 @@
 import 'package:bootcamp_starter/prefs/shared_pref_controller.dart';
-import '../models/User.dart';
+import '../models/Users.dart';
 import 'api_helper.dart';
 
 class UsersApi {
@@ -25,7 +25,7 @@ class UsersApi {
         {
           'Authorization': 'Bearer $userToken',
         });
-    print(User.fromJson(response).fcm);
+    print(Users.fromJson(response).fcm);
 
   }
 }
