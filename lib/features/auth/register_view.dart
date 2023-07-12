@@ -1,9 +1,10 @@
-import 'package:bootcamp_starter/api/api_message.dart';
+import 'package:bootcamp_starter/api/api_response.dart';
 import 'package:bootcamp_starter/api/auth_api.dart';
+import 'package:bootcamp_starter/api/users_api.dart';
 import 'package:bootcamp_starter/core/util/assets.dart';
 import 'package:bootcamp_starter/core/widgets/custom_labeled_textfield_widget.dart';
 import 'package:bootcamp_starter/core/widgets/secondary_button_widget.dart';
-import 'package:bootcamp_starter/extentions/context_extention.dart';
+import 'package:bootcamp_starter/features/auth/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -80,11 +81,10 @@ class RegisterView extends StatelessWidget {
                 ),
                 SecondaryButtonWidget(
                     onTap: () async{
-                     ApiMessage apiMessage = await AuthApi().register(name: nameController.text , email: emailController.text , password: passwordController.text);
-                     context.showSnackBar(message: apiMessage.message, error: apiMessage.success);
-                     if(apiMessage.success) {
-                       Navigator.pushNamed(context, MainAppView.id);
-                     }
+                     await AuthApi().register(name: nameController.text , email: emailController.text , password: passwordController.text);
+                      // await UsersApi().update_fcm(fcm: '12345');
+                     Navigator.pushNamed(context, MainAppView.id);
+
                 }, text: 'REGISTER'),
                 const SizedBox(
                   height: 12,
