@@ -8,6 +8,7 @@ import 'package:bootcamp_starter/features/main_app/main_app_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../prefs/shared_pref_controller.dart';
 import 'widgets/google_button_widget.dart';
 
 class LoginView extends StatelessWidget {
@@ -57,6 +58,7 @@ class LoginView extends StatelessWidget {
                     onTap: () async{
                       await AuthApi().login(email: emailController.text, password: passwordController.text);
                       Navigator.pushNamed(context, MainAppView.id);
+                      print('name: '+(SharedPreController().getValueFor<String?>(key: Prefkeys.name.name)?? ''),);
                     },
                     text: 'LOGIN'),
                 const SizedBox(

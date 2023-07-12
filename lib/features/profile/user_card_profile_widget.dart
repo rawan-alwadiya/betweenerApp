@@ -1,10 +1,11 @@
 import 'package:bootcamp_starter/core/widgets/custom_text.dart';
+import 'package:bootcamp_starter/prefs/shared_pref_controller.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/util/assets.dart';
-import '../../../core/util/constants.dart';
-import '../../../core/widgets/custom_elevated_button.dart';
-import '../edit_profile.dart';
+import '../../core/util/assets.dart';
+import '../../core/util/constants.dart';
+import '../../core/widgets/custom_elevated_button.dart';
+import 'edit_profile.dart';
 
 class UserCardProfileWidget extends StatelessWidget {
 
@@ -39,12 +40,12 @@ class UserCardProfileWidget extends StatelessWidget {
 
                   children: [
                     CustomText(
-                      text: 'John Doe',
+                      text: SharedPreController().getValueFor<String>(key: Prefkeys.name.name)??'',
                       color: kScaffoldColor,
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                     ),
-SizedBox(width: 66,),
+        SizedBox(width: 66,),
 
                     IconButton(
                         onPressed: () {
@@ -61,7 +62,7 @@ SizedBox(width: 66,),
                   height: 6,
                 ),
                 CustomText(
-                  text: 'Amany@gmail.com',
+                  text: SharedPreController().getValueFor<String>(key: Prefkeys.email.name) ?? '',
                   color: kScaffoldColor,
                   fontSize: 12,
                   fontWeight: FontWeight.w600,

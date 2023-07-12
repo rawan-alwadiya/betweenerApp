@@ -1,6 +1,6 @@
 
+import 'package:bootcamp_starter/models/r_user.dart';
 import 'package:bootcamp_starter/models/register_user.dart';
-import '../models/models/register_user.dart';
 import '../prefs/shared_pref_controller.dart';
 import 'api_helper.dart';
 
@@ -14,8 +14,15 @@ class AuthApi {
       'password': password
     },{});
     if( Regisered_user.fromJson(response).token != null) {
-      print(Regisered_user.fromJson(response).token);
-        SharedPreController().update_token(token:Regisered_user.fromJson(response).token!);
+      String name = Regisered_user.fromJson(response).user!.name!;
+      String email = Regisered_user.fromJson(response).user!.email;
+      String createdAt = Regisered_user.fromJson(response).user!.createdAt;
+      String updatedAt = Regisered_user.fromJson(response).user!.updatedAt;
+      String token = Regisered_user.fromJson(response).token!;
+      int id = Regisered_user.fromJson(response).user!.id;
+      R_User user = R_User(name,email,updatedAt,createdAt,id);
+      Regisered_user regisered_user = Regisered_user(user: user , token: token);
+      SharedPreController().save_user(user: regisered_user);
 
     }
 
@@ -29,8 +36,15 @@ class AuthApi {
       'password_confirmation': password
     }, {});
     if (Regisered_user.fromJson(response).token != null) {
-      print(Regisered_user.fromJson(response).token);
-       SharedPreController().save_user(user: Regisered_user.fromJson(response));
+      String name = Regisered_user.fromJson(response).user!.name!;
+      String email = Regisered_user.fromJson(response).user!.email;
+      String createdAt = Regisered_user.fromJson(response).user!.createdAt;
+      String updatedAt = Regisered_user.fromJson(response).user!.updatedAt;
+      String token = Regisered_user.fromJson(response).token!;
+      int id = Regisered_user.fromJson(response).user!.id;
+       R_User user = R_User(name,email,updatedAt,createdAt,id);
+       Regisered_user regisered_user = Regisered_user(user: user , token: token);
+       SharedPreController().save_user(user: regisered_user);
     }
   }
 }
