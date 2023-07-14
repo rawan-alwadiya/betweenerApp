@@ -1,4 +1,6 @@
 
+import 'package:bootcamp_starter/prefs/shared_pref_controller.dart';
+
 import '../../../../api/api_helper.dart';
 import '../models/follwers_model.dart';
 
@@ -6,7 +8,7 @@ class FollwerRepository {
   final ApiBaseHelper _helper = ApiBaseHelper();
 
   //example - you can use cashed user token
-  String userToken = '706|YBrFhi3sGufKyJA3aBhdh5sKBJAbNmQkdMTdPfG6';
+  String userToken = SharedPreController().getValueFor<String>(key: Prefkeys.token.name) ?? '';
 
   ///////////////////////////////////////////////////////////////////////////////
 //add follwer

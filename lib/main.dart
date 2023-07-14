@@ -5,6 +5,7 @@ import 'package:bootcamp_starter/features/auth/register_view.dart';
 import 'package:bootcamp_starter/features/home/home_view.dart';
 import 'package:bootcamp_starter/features/home/qr_scan.dart';
 import 'package:bootcamp_starter/features/main_app/main_app_view.dart';
+import 'package:bootcamp_starter/features/profile/follwer/provider/follwer_provider.dart';
 import 'package:bootcamp_starter/features/profile/profile_view.dart';
 import 'package:bootcamp_starter/prefs/shared_pref_controller.dart';
 import 'package:bootcamp_starter/provider/link_provider.dart';
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<LinkProvider>(
         create: (_) => LinkProvider(),
     ),
+          ChangeNotifierProvider<FollwerProvider>(
+            create: (_) => FollwerProvider(),
+          ),
     ],
      child: MaterialApp(
       debugShowCheckedModeBanner: false,

@@ -1,4 +1,3 @@
-
 import 'package:bootcamp_starter/models/r_user.dart';
 import 'package:bootcamp_starter/models/register_user.dart';
 import '../prefs/shared_pref_controller.dart';

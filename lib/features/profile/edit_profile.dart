@@ -4,6 +4,7 @@ import '../../core/util/assets.dart';
 import '../../core/util/constants.dart';
 import '../../core/widgets/custom_labeled_textfield_widget.dart';
 import '../../core/widgets/secondary_button_widget.dart';
+import '../../prefs/shared_pref_controller.dart';
 import '../auth/login_view.dart';
 
 class EditProfile extends StatelessWidget {
@@ -35,16 +36,16 @@ class EditProfile extends StatelessWidget {
             const SizedBox(
               height:23,
             ),
-            const PrimaryLabeledTextFieldWidget(
+             PrimaryLabeledTextFieldWidget(
               label: 'name',
-              hint: 'Dina Almasri',
+              hint: SharedPreController().getValueFor(key: Prefkeys.name.name),
             ),
             const SizedBox(
               height: 15,
             ),
-            const PrimaryLabeledTextFieldWidget(
+             PrimaryLabeledTextFieldWidget(
               label: 'email',
-              hint: '123@gmail.com',
+              hint: SharedPreController().getValueFor(key: Prefkeys.email.name),
             ),
             const SizedBox(
               height: 15,
