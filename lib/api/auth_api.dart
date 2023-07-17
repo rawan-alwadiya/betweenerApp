@@ -14,11 +14,11 @@ class AuthApi {
     },{});
     if( Regisered_user.fromJson(response).token != null) {
       String name = Regisered_user.fromJson(response).user!.name!;
-      String email = Regisered_user.fromJson(response).user!.email;
-      String createdAt = Regisered_user.fromJson(response).user!.createdAt;
-      String updatedAt = Regisered_user.fromJson(response).user!.updatedAt;
+      String? email = Regisered_user.fromJson(response).user!.email;
+      String? createdAt = Regisered_user.fromJson(response).user!.createdAt;
+      String? updatedAt = Regisered_user.fromJson(response).user!.updatedAt;
       String token = Regisered_user.fromJson(response).token!;
-      int id = Regisered_user.fromJson(response).user!.id;
+      int? id = Regisered_user.fromJson(response).user!.id;
       R_User user = R_User(name,email,updatedAt,createdAt,id);
       Regisered_user regisered_user = Regisered_user(user: user , token: token);
       SharedPreController().save_user(user: regisered_user);
@@ -36,11 +36,11 @@ class AuthApi {
     }, {});
     if (Regisered_user.fromJson(response).token != null) {
       String name = Regisered_user.fromJson(response).user!.name!;
-      String email = Regisered_user.fromJson(response).user!.email;
-      String createdAt = Regisered_user.fromJson(response).user!.createdAt;
-      String updatedAt = Regisered_user.fromJson(response).user!.updatedAt;
+      String? email = Regisered_user.fromJson(response).user!.email;
+      String? createdAt = Regisered_user.fromJson(response).user!.createdAt;
+      String? updatedAt = Regisered_user.fromJson(response).user!.updatedAt;
       String token = Regisered_user.fromJson(response).token!;
-      int id = Regisered_user.fromJson(response).user!.id;
+      int? id = Regisered_user.fromJson(response).user!.id;
        R_User user = R_User(name,email,updatedAt,createdAt,id);
        Regisered_user regisered_user = Regisered_user(user: user , token: token);
        SharedPreController().save_user(user: regisered_user);

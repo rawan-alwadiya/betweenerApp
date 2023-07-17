@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../api/api_response.dart';
 import '../../api/users_api.dart';
 import '../../prefs/shared_pref_controller.dart';
 class HomeView extends StatefulWidget {
   static String id = '/homeView';
-  const HomeView({super.key});
+   const HomeView({super.key});
 
 
 
@@ -80,12 +81,18 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 20, left: 34, right: 34),
-                  child: Image.asset(
-                    'assets/imgs/qrCode.png',
-                    width: 317.72,
-                    height: 366.58,
-                    fit: BoxFit.fill,
-                  ),
+                  child:
+                  QrImageView(
+                    data: SharedPreController().getValueFor<String>(key: Prefkeys.token.name) ?? '',
+                    size: 400,
+                    backgroundColor: Colors.white,
+                  )
+                  // Image.asset(
+                  //   'assets/imgs/qrCode.png',
+                  //   width: 317.72,
+                  //   height: 366.58,
+                  //   fit: BoxFit.fill,
+                  // ),
                 ),
                 Container(
                   width: 198.0,

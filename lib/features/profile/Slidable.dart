@@ -17,13 +17,17 @@ class SlidableSocial extends StatelessWidget {
   Widget build(BuildContext context) {
     return Slidable(
       endActionPane: ActionPane(
-        motion: BehindMotion(),
+       motion: StretchMotion(),
         children: [
-          Container(
-            width:  70,
-           height:  70,
-            margin: EdgeInsets.only(bottom: 24,left: 14,right: 14),
-            child: SlidableAction(
+          // Container(
+          //   width:  70,
+          //  height:  70,
+          //   margin: EdgeInsets.only(bottom: 24,left: 14,right: 14),
+          //   child:
+            SlidableAction(
+              flex: 1,
+              spacing: 4,
+              padding: EdgeInsets.all(0),
               backgroundColor: Colors.green,
               icon: Icons.edit,
               onPressed: (context) {
@@ -31,54 +35,67 @@ class SlidableSocial extends StatelessWidget {
                   return EditLink(index: index , link: link);
                 },));
               },
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(6),
 
             ),
-          ),
-          Container(
-            width:  70,
-           height: 70,
-            margin: EdgeInsets.only(bottom: 24,),
-            child: SlidableAction(
+
+          // ),
+          // Container(
+          //   width:  70,
+          //  height: 70,
+          //   margin: EdgeInsets.only(bottom: 24,),
+          //   child:
+            SlidableAction(
+              flex: 1,
+              padding: EdgeInsets.all(0),
               backgroundColor: Colors.red,
               icon: Icons.delete,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(6),
               onPressed: (context) {
-                // Provider.of<LinkProvider>(context).deleteLink(id: 75);
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  // return DeleteLink(title: title, link: link, id: 74);
                    return DeleteLink(link: link,);
                 },)
                 );
               })
-          ),
+          // ),
         ],
       ),
       child: Container(
-        width: double.infinity,
-        height: 70,
-        padding: EdgeInsets.all(12),
-        margin: EdgeInsets.only(bottom: 24,),
+        // width: double.infinity,
+        //  height: 70,
+        // padding: EdgeInsets.all(6),
+        margin: EdgeInsets.only(bottom: 10,),
         decoration: BoxDecoration(
           color: index! % 2 == 0 ? Color(0xFFFEE2E7) : Color(0xFFE7E5F1),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(6),
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomText(
-              text: link.title,
-              color: index % 2 == 0 ? kOnLightDangerColor : kPrimaryColor,
-            ),
-            SizedBox(
-              height: 4,
-            ),
-            CustomText(
-              text: link.link,
-              color: index % 2 == 0 ? kOnLightDangerColor : kPrimaryColor,
-            ),
-          ],
-        ),
+        child:
+        // Column(
+        //   crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: [
+        //     CustomText(
+        //       text: link.title,
+        //       color: index % 2 == 0 ? kOnLightDangerColor : kPrimaryColor,
+        //     ),
+        //     SizedBox(
+        //       height: 4,
+        //     ),
+        //     CustomText(
+        //       text: link.link,
+        //       color: index % 2 == 0 ? kOnLightDangerColor : kPrimaryColor,
+        //     ),
+        //   ],
+        // ),
+        ListTile(
+          title: CustomText(
+                text: link.title,
+                color: index % 2 == 0 ? kOnLightDangerColor : kPrimaryColor,
+              ),
+          subtitle: CustomText(
+                text: link.link,
+                color: index % 2 == 0 ? kOnLightDangerColor : kPrimaryColor,
+              ),
+        )
       ),
     );
   }

@@ -1,16 +1,16 @@
-class FollwerResponse {
+class FollowerResponse {
   int? followingCount;
   int? followersCount;
   List<Following>? following;
   List<Followers>? followers;
 
-  FollwerResponse(
+  FollowerResponse(
       {this.followingCount,
       this.followersCount,
       this.following,
       this.followers});
 
-  FollwerResponse.fromJson(Map<String, dynamic> json) {
+  FollowerResponse.fromJson(Map<String, dynamic> json) {
     followingCount = json['following_count'];
     followersCount = json['followers_count'];
     if (json['following'] != null) {

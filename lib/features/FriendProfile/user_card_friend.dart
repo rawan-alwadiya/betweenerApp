@@ -6,7 +6,9 @@ import '../../core/widgets/custom_elevated_button.dart';
 import '../../core/widgets/custom_text.dart';
 
 class UserCardFriend extends StatelessWidget {
-
+ String name ;
+ String email;
+ UserCardFriend({required this.name , required this.email});
 
 
   @override
@@ -36,7 +38,7 @@ class UserCardFriend extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomText(
-                  text: 'John Doe',
+                  text: name,
                   color: kScaffoldColor,
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -45,7 +47,7 @@ class UserCardFriend extends StatelessWidget {
                   height: 8,
                 ),
                 CustomText(
-                  text: 'Amany@gmail.com',
+                  text: email,
                   color: kScaffoldColor,
                   fontSize: 12,
                   fontWeight: FontWeight.w600,

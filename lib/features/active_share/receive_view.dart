@@ -39,7 +39,7 @@ class ReceiveView extends StatelessWidget {
                   }),
             ),
 
-            // const CustomFloatingNavBar(currentIndex: 0),
+
 
           ],
         ),

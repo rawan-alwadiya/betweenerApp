@@ -1,11 +1,11 @@
 class R_User {
-  late String name;
-  late String email;
-  late String updatedAt;
-  late String createdAt;
-  late int id;
-  double? lat;
-  double? long;
+  late String? name;
+  late String? email;
+  late String? updatedAt;
+  late String? createdAt;
+   int? id;
+  dynamic lat;
+  dynamic long;
   String? fcm;
 
   R_User( this.name,   this.email, this.updatedAt, this.createdAt, this.id,{this.lat,this.long,this.fcm});

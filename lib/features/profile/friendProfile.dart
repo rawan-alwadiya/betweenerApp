@@ -8,7 +8,10 @@ import '../FriendProfile/user_card_friend.dart';
 
 
 class FriendProfile extends StatefulWidget {
-  const FriendProfile({Key? key}) : super(key: key);
+   FriendProfile({Key? key , required this.name , required this.email}) : super(key: key);
+   static String id = '/friend';
+   String name ;
+   String email;
 
   @override
   State<FriendProfile> createState() => _FriendProfileState();
@@ -19,7 +22,7 @@ class _FriendProfileState extends State<FriendProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ahmed Ali",style: TextStyle(fontSize: 20,color: Colors.black),),
+        title: Text(widget.name,style: TextStyle(fontSize: 20,color: Colors.black),),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
@@ -31,7 +34,7 @@ class _FriendProfileState extends State<FriendProfile> {
           child: Column(
 
             children: [
-              UserCardFriend(),
+              UserCardFriend(name: widget.name,email:  widget.email,),
           SizedBox(
             height: 30,
           ),

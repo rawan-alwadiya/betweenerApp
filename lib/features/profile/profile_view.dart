@@ -61,30 +61,33 @@ class _ProfileViewState extends State<ProfileView> {
                           )));
             }
              return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                child: Column(
-                  children: [
-                    UserCardProfileWidget(),
-                    SizedBox(height: 20,),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: linkProvider.linkList.data?.length,
-                    itemBuilder: (context, index) {
-                      return SlidableSocial(
-                        index: index,
-                        link : linkProvider.linkList.data![index],
-                      );
-                    },
-                  ),
-                  SizedBox(height: 50,
-                  ),
+               child: Padding(
+                 padding: const EdgeInsets.symmetric(
+                 vertical: 20,
+                   horizontal: 20
+                 ),
+                 child: Column(
+                   children: [
+                     UserCardProfileWidget(),
+                     SizedBox(height: 20,),
+                   ListView.builder(
+                     shrinkWrap: true,
+                     physics: NeverScrollableScrollPhysics(),
+                     itemCount: linkProvider.linkList.data?.length,
+                     itemBuilder: (context, index) {
+                       return SlidableSocial(
+                         index: index,
+                         link : linkProvider.linkList.data![index],
+                       );
+                     },
+                   ),
+                   SizedBox(height: 50,
+                   ),
 
            ]
     )
-              )
-            );
+               ),
+             );
     }
     ),
         floatingActionButton: InkWell(

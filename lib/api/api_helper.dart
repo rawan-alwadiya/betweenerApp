@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'exceptions.dart';
 
 class ApiBaseHelper {
-  final String _baseUrl = "http://172.16.6.87:8000/api";
+  final String _baseUrl = "http://osamapro.online/api";
 
   Future<dynamic> get(String url, Map<String, String> header) async {
     var responseJson;

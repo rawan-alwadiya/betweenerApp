@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../api/api_response.dart';
+import '../api/api_response.dart';
 import '../models/search_model.dart';
-import '../repo/search_repository.dart';
+import '../api/search_repository.dart';
 
 
 class SearchProvider extends ChangeNotifier {
