@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 
 enum Prefkeys
-{id,loggedIn,name, email, password, token,updated_at , created_at ,lat ,long,fcm}
+{id,loggedIn,name, email, password, token,updated_at , created_at ,lat ,long,fcm, user_id,type, count,nearest_users}
 class SharedPreController {
   SharedPreController._();
 
@@ -35,6 +35,15 @@ class SharedPreController {
 
   }
 
+  Future<void> setActiveSharing({required user_id, required type })async{
+    await _sharedPreferences.setString(Prefkeys.user_id.name, user_id);
+    await _sharedPreferences.setInt(Prefkeys.type.name, type);
+  }
+
+  Future<void> nearest_sender({required count, required nearest_users})async{
+    await _sharedPreferences.setInt(Prefkeys.count.name ,count);
+    await _sharedPreferences.setStringList(Prefkeys.nearest_users.name, nearest_users);
+  }
 
   T? getValueFor<T>({required String key}){
     if(_sharedPreferences.containsKey(key)){

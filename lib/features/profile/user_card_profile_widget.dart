@@ -4,7 +4,6 @@ import 'package:bootcamp_starter/features/profile/following.dart';
 import 'package:bootcamp_starter/models/followers_model.dart';
 import 'package:bootcamp_starter/provider/follower_provider.dart';
 import 'package:bootcamp_starter/prefs/shared_pref_controller.dart';
-import 'package:bootcamp_starter/testing_secreen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

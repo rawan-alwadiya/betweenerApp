@@ -1,5 +1,4 @@
-
-import 'package:bootcamp_starter/features/auth/login_view.dart';
+import 'package:bootcamp_starter/api/link_reprository.dart';
 import 'package:bootcamp_starter/features/home/home_view.dart';
 import 'package:bootcamp_starter/features/main_app/main_app_view.dart';
 import 'package:bootcamp_starter/prefs/shared_pref_controller.dart';
@@ -20,10 +19,17 @@ class _LaunchScreenState extends State<LaunchScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 3), (){
-      bool loggedIn = SharedPreController().getValueFor<bool>(key: Prefkeys.loggedIn.name) ?? false;
-      String route = loggedIn? HomeView.id : MainAppView.id;
-      Navigator.pushReplacementNamed(context,route);
+    Future.delayed(const Duration(seconds: 3), ()async{
+      // bool loggedIn = SharedPreController().getValueFor<bool>(key: Prefkeys.loggedIn.name) ?? false;
+      // String route = loggedIn? HomeView.id : MainAppView.id;
+      // Navigator.pushReplacementNamed(context,route);
+      bool isActive =await LinkRepository().isTokenActive();
+      if(isActive ) {
+        bool loggedIn = SharedPreController().getValueFor<bool>(
+            key: Prefkeys.loggedIn.name) ?? false;
+        String route = loggedIn ? HomeView.id : MainAppView.id;
+        Navigator.pushReplacementNamed(context, route);
+      }
     });
   }
   @override
@@ -42,7 +48,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
         //     ]
         //   )
         // ),
-        child: Text('bootcamp_starter', style: GoogleFonts.pacifico(fontSize: 34,fontWeight: FontWeight.bold, color: Colors.white,),),
+        child: Text('Betweener', style: GoogleFonts.roboto(fontSize: 34,fontWeight: FontWeight.bold, color: Colors.white,),),
       ),
     );
   }
