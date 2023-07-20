@@ -28,8 +28,6 @@ class ActiveSharing {
     await SharedPreController().setActiveSharing(user_id: setActiveSharing.activeSharing.userId, type: setActiveSharing.activeSharing.type);
 
   }
-
-
   Future<ApiMessage> removeActive ()async{
     final response =await _helper.post('/activeShare/5', {}, {
       HttpHeaders.authorizationHeader: SharedPreController().getValueFor(key: Prefkeys.token.name)??'',
