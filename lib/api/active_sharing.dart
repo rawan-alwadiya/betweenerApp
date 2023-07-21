@@ -39,6 +39,7 @@ class ActiveSharing {
     return ApiMessage(message: 'Updated successfully', success: true);
   }
 
+
   Future<List<String>> nearestSender ()async {
     UsersApi().update_fcm(id: SharedPreController().getValueFor(key: Prefkeys.id.name),fcm: SharedPreController().getValueFor(key: Prefkeys.fcm.name));
     UsersApi().update_location(id: SharedPreController().getValueFor(key: Prefkeys.id.name),lat: SharedPreController().getValueFor(key: Prefkeys.lat.name), long: SharedPreController().getValueFor(key: Prefkeys.long.name));
