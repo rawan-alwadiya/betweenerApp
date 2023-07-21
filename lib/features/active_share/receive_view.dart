@@ -250,8 +250,6 @@ class _ReceiveViewState extends State<ReceiveView> {
           }
       ),
 
-
     );
   }
 }
-
