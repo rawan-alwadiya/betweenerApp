@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:bootcamp_starter/api/api_helper.dart';
 import 'package:bootcamp_starter/api/api_message.dart';
 import 'package:bootcamp_starter/api/users_api.dart';
@@ -28,6 +27,7 @@ class ActiveSharing {
     await SharedPreController().setActiveSharing(user_id: setActiveSharing.activeSharing.userId, type: setActiveSharing.activeSharing.type);
 
   }
+
   Future<ApiMessage> removeActive ()async{
     final response =await _helper.post('/activeShare/5', {}, {
       HttpHeaders.authorizationHeader: SharedPreController().getValueFor(key: Prefkeys.token.name)??'',
